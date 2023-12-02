@@ -202,6 +202,17 @@
   }
 
   #review-section {
+
+
+    overflow: hidden;
+    padding-bottom: 150px;
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 170px;
+
+    }
+
+
     #slider-reviews-ow {
       display: flex;
       flex-direction: column-reverse;
@@ -211,6 +222,7 @@
         display: flex;
         justify-content: center;
         margin-top: 30px;
+        z-index: 5;
 
         button {
           width: 12px;
@@ -236,13 +248,16 @@
 
       #customize-controls {
         position: absolute;
-        top: 55%;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -100%);        
         justify-content: space-between;
         z-index: 100;
         width: 100%;
         display: none;
+        @include media-breakpoint-up(lg) {
+          width: 830px;    
+        }
 
         @include hover-detect {
           display: flex;
@@ -258,11 +273,11 @@
 
       #slider-reviews {
         position: relative;
-        margin-top: 5rem;
 
         .item-review {
 
-
+          padding-right: 50px;
+          padding-left: 40px;
 
           &__content {
             background-color: $white;
@@ -275,10 +290,17 @@
 
             .plante-review {
               position: absolute;
-              left: -210px;
-              height: 130px;
-              bottom: 10px;
-              transform: scaleX(-1) translate(0, 100%);
+              right: 40px;
+              height: 90px;
+              bottom: -38px;
+              transform: scaleX(-1) translate(0, 100%) rotate(21deg);
+
+              @include media-breakpoint-up(lg) {
+                left: -117px;
+                height: 132px;
+                bottom: -10px;
+              }
+
             }
 
             &__text {}
@@ -351,7 +373,7 @@
 
     #map-front-page {
       padding: 0;
-      margin-top: 7rem; 
+      margin-top: 7rem;
 
       #container-map-front-page {
         height: 400px;

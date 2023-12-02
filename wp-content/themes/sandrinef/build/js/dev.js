@@ -30,14 +30,16 @@ function load() {
 // SMOOTH SCROLL 
 /////////////
 
-const lenis = new Lenis()
+const lenis = new Lenis({
+  duration: 2, // Durée en secondes
+})
 
 
 function raf(time) {
   lenis.raf(time)
   requestAnimationFrame(raf)
-}    
-   
+}
+
 requestAnimationFrame(raf)
 
 //////////
@@ -57,7 +59,7 @@ const handleIntersect = function (entries, observer) {
       observer.unobserve(entry.target);
     }
   });
-}; 
+};
 
 document.documentElement.classList.add("reveal-loaded");
 window.addEventListener("DOMContentLoaded", function () {
@@ -99,9 +101,9 @@ const scaleInImage = (image, outline) => {
   return tl;
 };
 sectionsParent.forEach(sectionParent => {
-  
+
   const images = sectionParent.querySelectorAll(".img-container");
-  
+
   images.forEach((image) => {
     gsap.set(image, {
       visibility: "visible",
@@ -192,24 +194,87 @@ window.addEventListener("scroll", function (e) {
     document.querySelector(".navbar").classList.add("show");
   else document.querySelector(".navbar").classList.remove("show");
 });
-
+document.querySelectorAll(".menu-menu-principal > .menu-item-has-children").forEach(function (el) {
+  el.addEventListener("mouseover", function (event) {
+    console.log("Événement mouseover déclenché sur ", el);
+  });
+});
 // DROPDOWN MENU
-[].forEach.call(
-  document.getElementsByClassName("menu-item-has-children"),
-  function (el) {
-    el.addEventListener("mouseover", function (event) {
+document.addEventListener('DOMContentLoaded', (event) => {
+
+  document.querySelectorAll("#menu-menu-principal > .menu-item-has-children").forEach(function (el) {
+
+    el.addEventListener("mouseenter", function (event) {
+
       let subMenuHolder = document.getElementById("sub-menu-holder");
-      let subMenu = el.querySelector(".sub-menu");
+      let subMenu = el.querySelector(".sous-menu");
+      let subSubMenu = el.querySelectorAll(".sous-sous-menu");
+
+
+      let tallestElement = null;
+      let maxHeight = 0;
+
+      for (let key in subSubMenu) {
+        if (subSubMenu.hasOwnProperty(key)) {
+          let element = subSubMenu[key];
+          let elementHeight = element.offsetHeight;
+
+          if (elementHeight > maxHeight) {
+            maxHeight = elementHeight;
+            tallestElement = element;
+          }
+        }
+      }
+
+      for (let key in subSubMenu) {
+        if (subSubMenu.hasOwnProperty(key)) {
+          subSubMenu[key].style.height = tallestElement.offsetHeight + "px";
+          console.log(subSubMenu);
+        }
+      }
 
       if (window.innerWidth > 991) {
-        subMenuHolder.style.width = `${subMenu.offsetWidth}px`;
-        subMenuHolder.style.height = `${subMenu.offsetHeight}px`;
-        subMenuHolder.style.left = `${el.offsetLeft + el.offsetWidth / 2}px`;
-        subMenuHolder.style.top = `${el.offsetTop + el.offsetHeight}px`;
+        if (el.classList.contains("menu-item-84")) {
+          subMenuHolder.style.width = `${subMenu.offsetWidth + tallestElement.offsetWidth}px`;
+          subMenuHolder.style.height = `${tallestElement.offsetHeight}px`;
+          subMenuHolder.style.left = `${el.offsetLeft + el.offsetWidth + tallestElement.offsetWidth / 5}px`;
+          subMenuHolder.style.top = `${el.offsetTop + el.offsetHeight}px`;
+        } else {
+          subMenuHolder.style.width = `${subMenu.offsetWidth}px`;
+          subMenuHolder.style.height = `${subMenu.offsetHeight}px`;
+          subMenuHolder.style.left = `${el.offsetLeft + el.offsetWidth / 2}px`;
+          subMenuHolder.style.top = `${el.offsetTop + el.offsetHeight}px`;
+        }
+
       }
+
     });
   }
-);
+  );
+});
+
+document.querySelectorAll('#menu-item-84 .menu-item-has-children').forEach(function (parent) {
+  parent.addEventListener('mouseenter', function () {
+    // Masquer tous les enfants
+    document.querySelectorAll('.sous-sous-menu').forEach(function (enfant) {
+      enfant.style.opacity = '0';
+      enfant.style.visibility = 'hidden';
+    });
+
+    document.querySelectorAll('#menu-item-84 .menu-item-has-children').forEach(function (elDisable) {
+      elDisable.classList.remove("focused");
+    });
+
+    // Activer l'élément
+    this.classList.add("focused");
+
+
+    // Afficher l'enfant de ce parent
+    this.querySelector('.sous-sous-menu').style.opacity = '1';
+    this.querySelector('.sous-sous-menu').style.visibility = 'visible';
+
+  });
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {

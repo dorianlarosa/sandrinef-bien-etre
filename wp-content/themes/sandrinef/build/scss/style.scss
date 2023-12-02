@@ -20,6 +20,10 @@ body {
   padding: 0;
 }
 
+//////////////////
+// SMOOTH SCROLL
+//////////////////
+
 html.lenis {
   height: auto;
 }
@@ -52,7 +56,19 @@ h5,
 h6,
 p {
   margin-bottom: 0;
-  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black-font;
+}
+
+p {
+  color: $black-font;
 }
 
 body {
@@ -348,55 +364,58 @@ p {
 // Animated Arrow Button
 
 .btn-arrow {
-  display: inline-block;
+  display: inline-block !important;
   color: $black !important;
-  font-size: 1em;
-  font-weight: 700;
-  text-decoration: none;
-  position: relative;
-  transition: all .3s;
-  padding: 12px 24px;
+  font-size: 1em !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: all .3s !important;
+  padding: 12px 24px !important;
 
   &:hover {
 
     .background {
-      width: 100%;
+      width: 100% !important;
     }
 
-
     .arrow {
-      margin-left: 10px;
+      margin-left: 10px !important;
     }
 
     .text {}
   }
 
   .background {
-    background-color: $primary;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 48px;
-    transition: all .3s;
-    z-index: 0;
+    background-color: $primary !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 48px !important;
+    transition: all .3s !important;
+    z-index: 0 !important;
   }
 
   .arrow {
-    margin-left: 5px;
-    transition: all .3s;
-    fill: #000;
-    z-index: 5;
-    position: relative;
+    margin-left: 5px !important;
+    transition: all .3s !important;
+    fill: #000 !important;
+    z-index: 5 !important;
+    position: relative !important;
   }
 
-  .text {
-    z-index: 5;
-    position: relative;
+  .text, button {
+    z-index: 5 !important;
+    position: relative !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: $black-font !important;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
   }
 }
-
-
 
 .btn-outline {
   background-color: transparent !important;
@@ -769,10 +788,15 @@ $perpage: 3;
 
     .plante-footer {
         position: absolute;
-        height: 200px;
+        width: 40%;
         left: -65px;
         top: 42px;
         transform: rotate(19deg);
+        max-width: 400px;
+
+        @include media-breakpoint-up(md) {
+            width: 30%;
+        }
     }
 
     &__logo-container {
@@ -1122,6 +1146,17 @@ $perpage: 3;
   }
 
   #review-section {
+
+
+    overflow: hidden;
+    padding-bottom: 150px;
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 170px;
+
+    }
+
+
     #slider-reviews-ow {
       display: flex;
       flex-direction: column-reverse;
@@ -1131,6 +1166,7 @@ $perpage: 3;
         display: flex;
         justify-content: center;
         margin-top: 30px;
+        z-index: 5;
 
         button {
           width: 12px;
@@ -1156,13 +1192,16 @@ $perpage: 3;
 
       #customize-controls {
         position: absolute;
-        top: 55%;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -100%);        
         justify-content: space-between;
         z-index: 100;
         width: 100%;
         display: none;
+        @include media-breakpoint-up(lg) {
+          width: 830px;    
+        }
 
         @include hover-detect {
           display: flex;
@@ -1178,11 +1217,11 @@ $perpage: 3;
 
       #slider-reviews {
         position: relative;
-        margin-top: 5rem;
 
         .item-review {
 
-
+          padding-right: 50px;
+          padding-left: 40px;
 
           &__content {
             background-color: $white;
@@ -1195,10 +1234,17 @@ $perpage: 3;
 
             .plante-review {
               position: absolute;
-              left: -210px;
-              height: 130px;
-              bottom: 10px;
-              transform: scaleX(-1) translate(0, 100%);
+              right: 40px;
+              height: 90px;
+              bottom: -38px;
+              transform: scaleX(-1) translate(0, 100%) rotate(21deg);
+
+              @include media-breakpoint-up(lg) {
+                left: -117px;
+                height: 132px;
+                bottom: -10px;
+              }
+
             }
 
             &__text {}
@@ -1271,7 +1317,7 @@ $perpage: 3;
 
     #map-front-page {
       padding: 0;
-      margin-top: 7rem; 
+      margin-top: 7rem;
 
       #container-map-front-page {
         height: 400px;
@@ -1295,7 +1341,7 @@ $perpage: 3;
 
 
     &.transition-nav {
-      transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+      transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
 
       &.show {
         transform: translateY(0);
@@ -1384,7 +1430,7 @@ $perpage: 3;
         height: 2px;
         background-color: $action;
         margin: 4px auto;
-        transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+        transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
 
         display: block;
         cursor: pointer;
@@ -1440,7 +1486,7 @@ $perpage: 3;
         &.show-mobile-nav {
           opacity: 1 !important;
           visibility: visible !important;
-          transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99), visibility 0s;
+          transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99), visibility 0s;
 
         }
 
@@ -1483,7 +1529,8 @@ $perpage: 3;
           font-weight: normal;
           padding: 1em;
           position: absolute;
-          transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);          transform: translateX(-50%);
+          transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
+          transform: translateX(-50%);
           opacity: 0;
           box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1), 0 2px 20px rgba(0, 0, 0, 0.05);
           box-sizing: border-box;
@@ -1541,7 +1588,7 @@ $perpage: 3;
 
           &.menu-item-has-children:hover~#sub-menu-container #sub-menu-holder {
             animation: clipPath 0.25s ease-out 1 forwards;
-            transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+            transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
             opacity: 1;
             background-color: $white;
             right: auto;
@@ -1550,7 +1597,7 @@ $perpage: 3;
           &:hover .menu-text:after {
             bottom: 0.5em;
             opacity: 1;
-            transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+            transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
           }
 
           &:hover .sub-menu {
@@ -1561,8 +1608,8 @@ $perpage: 3;
 
           &:hover .sub-menu {
             pointer-events: all;
-            clip-path: inset(0 0 0 0);
-            transition: all 500ms cubic-bezier(0,-0.01,0.19,0.99);
+            // clip-path: inset(0 0 0 0);
+            transition: all 500ms cubic-bezier(0, -0.01, 0.19, 0.99);
             // transition: 4s ease-in-out !important;
 
           }
@@ -1573,7 +1620,7 @@ $perpage: 3;
           @include media-breakpoint-up(lg) {
             flex-grow: 1;
             justify-content: center;
-            transform-style: preserve-3d;
+            // transform-style: preserve-3d;
             flex-direction: row;
           }
 
@@ -1594,17 +1641,17 @@ $perpage: 3;
             text-decoration: none;
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
-            transition: all 500ms cubic-bezier(0,-0.01,0.19,0.99);
+            transition: all 500ms cubic-bezier(0, -0.01, 0.19, 0.99);
             // transition: 4s ease-in-out !important;
 
             @include hover-supported {
               &:not(.btn):after {
                 color: rgba(255, 255, 255, 0.5);
               }
-            } 
+            }
 
             &:after {
-              transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+              transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
               opacity: 0;
               content: "";
               position: absolute;
@@ -1617,7 +1664,11 @@ $perpage: 3;
             }
           }
 
-          .sub-menu {
+          .wrapper-sous-menu {
+            position: relative;
+          }
+
+          .sous-menu {
             color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             pointer-events: none;
@@ -1632,13 +1683,13 @@ $perpage: 3;
             top: 90px;
             width: 100%;
             overflow-y: scroll;
-            transition: all 300ms cubic-bezier(0,-0.01,0.19,0.99), opacity 150ms cubic-bezier(0,-0.01,0.19,0.99);
+            transition: all 300ms cubic-bezier(0, -0.01, 0.19, 0.99), opacity 150ms cubic-bezier(0, -0.01, 0.19, 0.99);
             // transition: all 2s ease-in-out, opacity 1s ease-in-out !important;
 
             @include media-breakpoint-up(lg) {
               position: absolute;
               opacity: 0;
-              clip-path: inset(0 10em 10em 15em);
+              // clip-path: inset(0 10em 10em 15em);
               margin-top: 0;
               left: initial;
               top: 3.35rem;
@@ -1649,18 +1700,30 @@ $perpage: 3;
             }
 
             .menu-item {
-              padding: 1rem 15px;
-              margin-left: 5px;
+
+              a {
+                padding: 1rem 15px;
+                margin-left: 5px;
+              }
+
 
               @include media-breakpoint-up(lg) {
-                padding: 1.25em 2em;
-                margin-left: 0;
+
+                padding: 0;
+                margin: 0;
+
+                a {
+                  padding: 1.25rem 1.25em;
+                  margin-left: 0;
+                }
+
               }
 
               a {
                 overflow: hidden;
               }
             }
+
 
 
           }
@@ -1681,12 +1744,12 @@ $perpage: 3;
           &.menu-item-has-children {
 
             &.visible-mobile {
-              .sub-menu {
+              .sous-menu {
                 left: 0;
               }
             }
 
-            .sub-menu {
+            .sous-menu {
 
 
               .back-icon {
@@ -1707,9 +1770,13 @@ $perpage: 3;
               }
 
               .menu-item {
-                transition: all 400ms cubic-bezier(0,-0.01,0.19,0.99);
+                transition: all 400ms cubic-bezier(0, -0.01, 0.19, 0.99);
 
                 @include hover-supported() {
+                  background-color: $grey;
+                }
+
+                &.focused {
                   background-color: $grey;
                 }
 
@@ -1718,17 +1785,19 @@ $perpage: 3;
                   display: block;
                 }
 
-                .menu-item-name {
-                  font-weight: 500;
-                  font-size: 1rem;
-                }
-
-                .menu-item-description {
-                  margin-top: 5px;
-                  color: $dark-grey;
-                  font-weight: 300;
+                .category-name,
+                .service-name {
                   font-size: .9rem;
                 }
+
+                .category-description,
+                .service-description {
+                  font-size: .9rem;
+                  font-weight: 400;
+                  color: $dark-grey;
+                }
+
+                .service-name {}
 
                 a {
 
@@ -1747,22 +1816,71 @@ $perpage: 3;
       }
 
       #menu-item-84 {
-        .sub-menu {
+        .sous-menu {
           @include media-breakpoint-up(lg) {
-
+            left: -13%;
+            text-align: left;
             display: grid;
-            grid-template-columns: 320px 320px;
+            grid-template-columns: 265px;
           }
+
+          .menu-item:first-of-type {
+            .sous-sous-menu {
+              opacity: 1;
+            }
+          }
+
+          .menu-item {
+            height: fit-content;
+            justify-content: start;
+          }
+
+          .menu-item-type-custom.menu-item-has-children {
+            .sous-sous-menu {
+              opacity: 0;
+              position: absolute;
+              top: 0;
+              left: 100%;
+              display: grid;
+              grid-template-columns: 325px 325px; 
+
+              .menu-item {
+                padding-left: 3rem;
+                position: relative;
+                &::before {
+                  content: 'icon';
+                  position: absolute;
+                  left: 0;
+                  top:50%;
+                  transform: translate(100%, -50%);
+                }
+              }
+
+            }
+
+            @include hover-supported() {
+              .sous-sous-menu {
+                opacity: 1;
+                z-index: 10;
+                // background-color: red;
+              }
+            }
+          }
+
+         
+
         }
       }
 
       #menu-item-175 {
-        .sub-menu {
+        .sous-menu {
           @include media-breakpoint-up(lg) {
 
             display: grid;
             grid-template-columns: 320px;
           }
+
+
         }
       }
 
@@ -1986,6 +2104,12 @@ $perpage: 3;
                     margin-top: 4rem;
                 }
 
+                h3 {
+                    font-family: $font-family-title;
+                    font-size: 1.75rem;
+                    font-weight: 400;
+                }
+
                 .text {
                     margin-top: 2rem;
                 }
@@ -2006,13 +2130,19 @@ $perpage: 3;
                         .container-icon {
                             background: $action;
                             border-radius: 50%;
-                            padding: 6px;
                             margin-right: 1rem;
+                            position: relative;
+                            height: 40px;
+                            width: 40px;
 
                             svg {
                                 color: $white;
-                                height: 12px;
-                                width: 12px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                height: 15px;
+                                width: 15px;
                             }
                         }
 
@@ -2034,19 +2164,23 @@ $perpage: 3;
                     .horaire-item {
                         display: flex;
                         flex-direction: column;
-                        width:50%;
+                        width: 50%;
 
                         &:nth-child(2) {
-                            padding-left:40px;
+                            padding-left: 40px;
                         }
 
                         &:nth-child(3) {
-                            margin-top:30px;
+                            margin-top: 30px;
+                        }
+
+                        .periode {
+                            font-size: 1rem;
                         }
 
                         span {
                             font-family: $font-family-text;
-                            font-size: 1.2rem;
+                            font-size: 1.1rem;
                             color: $black-font;
                         }
                     }
@@ -2078,7 +2212,7 @@ $perpage: 3;
         padding: 0;
 
         #container-map {
-            height: 300px;
+            height: 400px;
         }
     }
 }
@@ -2138,10 +2272,14 @@ $perpage: 3;
     .item {
       -webkit-box-shadow: $box-shadow-1;
       box-shadow: $box-shadow-1;
-      max-width: 1100px;
+      max-width: 450px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
+
+      @include media-breakpoint-up(lg) {
+        max-width: 1100px;
+      }
 
       &:not(:first-of-type) {
         /* Vos styles vont ici */
@@ -2163,7 +2301,7 @@ $perpage: 3;
         right: 30px;
         top: 320px;
         transform: translate(100%, -100%);
-        height: 272px;
+        height: 200px;
         width: auto;
       }
 
@@ -2209,10 +2347,10 @@ $perpage: 3;
 
       .col-details {
 
-        padding-left: 40px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        padding-right: 40px;
+        padding-left: 50px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        padding-right: 50px;
         background-color: $white;
 
         @include media-breakpoint-up(sm) {
@@ -2249,7 +2387,7 @@ $perpage: 3;
             position: absolute;
             font-family: $font-family-text;
             color: $primary;
-            font-size: 3rem;
+            font-size: 4rem;
             z-index: 0;
             left: 0;
             top: 50%;
@@ -2969,7 +3107,7 @@ $dark-hover : #500021;
 $black : #000;
 
 
-$black-font : #3e3e3e;
+$black-font : #161616;
 $font-grey: #757575;
 $grey : #f8f8f8;
 $dark-grey: #747474;

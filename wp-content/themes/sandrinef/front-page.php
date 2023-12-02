@@ -186,10 +186,12 @@
         <?php } ?>
     </section>
 
-    <section id="review-section" class="container section">
+    <section id="review-section" class="container-fluid section">
+    <div class="container">
+
         <div class="container">
 
-            <h2 class="section__title">Avis clients</h2>
+            <h2 class="section__title"><span class="round-container">A</span>vis clients</h2>
             <?php get_template_part('parts/divider'); ?>
             <div class="container-slider">
                 <ul id="customize-controls">
@@ -276,7 +278,7 @@
             </div>
         </div>
 
-
+    </div>
     </section>
 
 
@@ -317,7 +319,7 @@
                     while ($city->have_posts()) : $city->the_post();
                         $revealCount++;
                     ?>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
 
                             <div class="city city-<?= $revealCount; ?>">
                                 <div class="city__content">

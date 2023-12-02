@@ -90,7 +90,7 @@
                                         </div>
                                         <div class="footer__bottom-footer">
                                                 <span class="copyright">
-                                                        2020 Sandrine Fonquernie. All right reserved
+                                                        <?php echo date("Y"); ?> © Sandrine Fonquernie. All right reserved
                                                 </span>
 
                                                 <div class="container-links">

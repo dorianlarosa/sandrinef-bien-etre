@@ -8,7 +8,7 @@ get_header();
 
 <div id="page-contactez-moi" class="content-page">
 
-<section id="header-page" class="container-fluid header">
+    <section id="header-page" class="container-fluid header">
         <div class="container container-content-header">
             <div class="content-header reveal">
                 <h1 class="content-header__title reveal-1"><?php the_title(); ?></h1>
@@ -23,23 +23,17 @@ get_header();
 
     <section id="contact-section" class="container-fluid section">
         <div class="container">
-            <div class="reveal">
+            <h2 class="section__title"><span class="round-container">P</span>rise de contact</h2>
+            <?php get_template_part('parts/divider'); ?>
 
-                <h2 class="section__title reveal-2">Prise de contact</h2>
-                <img class="divider reveal-3" src="<?= get_template_directory_uri() ?>/images/divider.svg" alt="">
-                <p class="section__subtitle reveal-4">
-                    Envoyer un message
-                </p>
-            </div>
+            <div class="container-informations-contact">
 
-            <div class="container-informations-contact reveal">
-
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-12 col-lg-5 col-informations-contact">
 
-                        <h3 class="reveal-1">Une question ?</h3>
-                        <p class="text reveal-2">
-                        Besoin de plus d’informations ? Je me ferais un plaisir de vous répondre.
+                        <h3>Une question ?</h3>
+                        <p class="text">
+                            Besoin de plus d’informations ? Je me ferais un plaisir de vous répondre.
                         </p>
                         <ul class="list-contact">
                             <li class="item-contact reveal-3">
@@ -61,18 +55,18 @@ get_header();
                         </ul>
                         <h3 class="title-horaire reveal-5">Horaires</h3>
                         <div class="container-horaires">
-                        <?php $horaires = get_field('horaires', 'option'); ?>
+                            <?php $horaires = get_field('horaires', 'option'); ?>
 
                             <div class="horaire-item reveal-6">
-                                <span><?= $horaires['horaire_1']['periode']; ?></span>
+                                <span class="periode"><?= $horaires['horaire_1']['periode']; ?></span>
                                 <span class="bold-text"><?= $horaires['horaire_1']['horaire']; ?></span>
                             </div>
                             <div class="horaire-item reveal-7">
-                                <span><?= $horaires['horaire_2']['periode']; ?></span>
+                                <span class="periode"><?= $horaires['horaire_2']['periode']; ?></span>
                                 <span class="bold-text"><?= $horaires['horaire_2']['horaire']; ?></span>
                             </div>
                             <div class="horaire-item reveal-8">
-                                <span><?= $horaires['horaire_3']['periode']; ?></span>
+                                <span class="periode"><?= $horaires['horaire_3']['periode']; ?></span>
                                 <span class="bold-text"><?= $horaires['horaire_3']['horaire']; ?></span>
                             </div>
                         </div>
@@ -81,10 +75,8 @@ get_header();
                     <div class="col-12 col-lg-6 offset-lg-1 col-form">
                         <div class="container-form">
                             <div class="form reveal-7">
-                                <?= do_shortcode('[wpforms id="106" title="false"]');?>
+                                <?= do_shortcode('[wpforms id="106" title="false"]'); ?>
                             </div>
-
-                            <?php get_template_part('parts/grid-dots', null, 'reveal-8'); ?>
                         </div>
                     </div>
                 </div>
@@ -99,8 +91,6 @@ get_header();
 
         </div>
     </section>
-
-    <?php get_template_part('parts/cta-section'); ?>
 
 
 </div>

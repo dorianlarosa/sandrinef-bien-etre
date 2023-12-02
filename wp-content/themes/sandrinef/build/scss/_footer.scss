@@ -6,10 +6,15 @@
 
     .plante-footer {
         position: absolute;
-        height: 200px;
+        width: 40%;
         left: -65px;
         top: 42px;
         transform: rotate(19deg);
+        max-width: 400px;
+
+        @include media-breakpoint-up(md) {
+            width: 30%;
+        }
     }
 
     &__logo-container {

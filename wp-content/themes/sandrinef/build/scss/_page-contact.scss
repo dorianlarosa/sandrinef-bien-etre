@@ -10,6 +10,12 @@
                     margin-top: 4rem;
                 }
 
+                h3 {
+                    font-family: $font-family-title;
+                    font-size: 1.75rem;
+                    font-weight: 400;
+                }
+
                 .text {
                     margin-top: 2rem;
                 }
@@ -30,13 +36,19 @@
                         .container-icon {
                             background: $action;
                             border-radius: 50%;
-                            padding: 6px;
                             margin-right: 1rem;
+                            position: relative;
+                            height: 40px;
+                            width: 40px;
 
                             svg {
                                 color: $white;
-                                height: 12px;
-                                width: 12px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                height: 15px;
+                                width: 15px;
                             }
                         }
 
@@ -58,19 +70,23 @@
                     .horaire-item {
                         display: flex;
                         flex-direction: column;
-                        width:50%;
+                        width: 50%;
 
                         &:nth-child(2) {
-                            padding-left:40px;
+                            padding-left: 40px;
                         }
 
                         &:nth-child(3) {
-                            margin-top:30px;
+                            margin-top: 30px;
+                        }
+
+                        .periode {
+                            font-size: 1rem;
                         }
 
                         span {
                             font-family: $font-family-text;
-                            font-size: 1.2rem;
+                            font-size: 1.1rem;
                             color: $black-font;
                         }
                     }
@@ -102,7 +118,7 @@
         padding: 0;
 
         #container-map {
-            height: 300px;
+            height: 400px;
         }
     }
 }

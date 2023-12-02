@@ -147,12 +147,12 @@ remove_action('template_redirect', 'rest_output_link_header', 10);
 
 
 
-// REMOVE POST MENU ADMIN
-function remove_posts_menu()
-{
-  remove_menu_page('edit.php');
-}
-add_action('admin_menu', 'remove_posts_menu');
+// // REMOVE POST MENU ADMIN
+// function remove_posts_menu()
+// {
+//   remove_menu_page('edit.php');
+// }
+// add_action('admin_menu', 'remove_posts_menu');
 
 
 /******
@@ -222,6 +222,28 @@ add_action('wp_enqueue_scripts', 'sandrinef_enqueue_script', 11);
 /////////////
 // CPT
 ////////////
+
+function creer_taxonomie_services()
+{
+  register_taxonomy(
+    'categorie_services', // Le nom de la taxonomie
+    'services',           // Le CPT auquel elle est associée
+    array(
+      'labels' => array(
+        'name' => 'Catégories de Services',
+        // Ajoutez d'autres labels selon vos besoins
+      ),
+      'show_ui' => true,
+      'show_in_quick_edit' => true,
+      'show_admin_column' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => 'categorie-services'),
+      'hierarchical' => true,
+    )
+  );
+}
+add_action('init', 'creer_taxonomie_services');
+
 
 // Register Custom Post Type
 function custom_post_type()
@@ -315,7 +337,7 @@ function custom_post_type()
     'description'           => __('Services proposés', 'text_domain'),
     'labels'                => $labelsServices,
     'supports'              => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
-    'taxonomies'  => array('category'),
+    'taxonomies'            => array('categorie_services'),
     'hierarchical'          => true,
     'public'                => true,
     'show_ui'               => true,
@@ -617,6 +639,32 @@ function wpjohnny_gutenberg_cpt($can_edit, $post_type)
 }
 add_filter('use_block_editor_for_post_type', 'wpjohnny_gutenberg_cpt', 10, 2);
 
+
+////////
+// HOOK FORMS BTN
+////////
+
+add_action('wpforms_display_submit_before', 'ajouter_avant_bouton_soumission', 10, 2);
+
+function ajouter_avant_bouton_soumission($form_data)
+{
+  // Vous pouvez vérifier l'ID du formulaire si nécessaire
+  echo ' <span class="btn-arrow"> 
+            <span class="background">
+            </span>';
+}
+
+add_action('wpforms_display_submit_after', 'ajouter_apres_bouton_soumission', 10, 2);
+
+function ajouter_apres_bouton_soumission($form_data)
+{
+  // Vous pouvez vérifier l'ID du formulaire si nécessaire
+  echo '  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+          </svg>
+        </span>';
+}
+
 //////////
 // MENU PAGE ADMIN
 //////////
@@ -714,45 +762,141 @@ function parent_menu_dropdown($item_output, $item, $depth, $args)
 class Custom_Walker extends Walker_Nav_Menu
 {
 
-  // ADD DESCRIPTION
-  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-  {
-    $classes = empty($item->classes) ? array() : (array) $item->classes;
-    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
-    !empty($class_names) and $class_names = ' class="' . esc_attr($class_names) . '"';
-    $output .= "<li id='menu-item-$item->ID' $class_names>";
+  // // ADD DESCRIPTION
+  // function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+  // {
+  //   $classes = empty($item->classes) ? array() : (array) $item->classes;
+  //   $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
+  //   !empty($class_names) and $class_names = ' class="' . esc_attr($class_names) . '"';
+  //   $output .= "<li id='menu-item-$item->ID' $class_names>";
 
-    $attributes  = '';
-    !empty($item->attr_title) and $attributes .= ' title="'  . esc_attr($item->attr_title) . '"';
-    !empty($item->target) and $attributes .= ' target="' . esc_attr($item->target) . '"';
-    !empty($item->xfn) and $attributes .= ' rel="'    . esc_attr($item->xfn) . '"';
-    !empty($item->url) and $attributes .= ' href="'   . esc_attr($item->url) . '"';
+  //   $attributes  = '';
+  //   !empty($item->attr_title) and $attributes .= ' title="'  . esc_attr($item->attr_title) . '"';
+  //   !empty($item->target) and $attributes .= ' target="' . esc_attr($item->target) . '"';
+  //   !empty($item->xfn) and $attributes .= ' rel="'    . esc_attr($item->xfn) . '"';
+  //   !empty($item->url) and $attributes .= ' href="'   . esc_attr($item->url) . '"';
 
-    $title = apply_filters('the_title', $item->title, $item->ID);
-    $item_output = $args->before
-      . "<a $attributes>"
-      . $args->link_before
-      . '<span class="menu-item-name">' . $title . '</span>'
-      . '<span class="menu-item-description">' . $item->description . '</span>'
-      . '</a> '
-      . $args->link_after
-      . $args->after; // Fermer </div> ici
+  //   $title = apply_filters('the_title', $item->title, $item->ID);
+  //   $item_output = $args->before
+  //     . "<a $attributes>"
+  //     . $args->link_before
+  //     . '<span class="menu-item-name">' . $title . '</span>'
+  //     . '<span class="menu-item-description">' . $item->description . '</span>'
+  //     . '</a> '
+  //     . $args->link_after
+  //     . $args->after; // Fermer </div> ici
 
-    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-  }
+  //   $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+  // }
 
 
-  // ADD BACK ICON SUBMENU MOBILE
-  function start_lvl(&$output, $depth = 0, $args = array())
+  // Surcharge de la méthode start_lvl pour ajouter des classes et l'icône de retour
+  function start_lvl(&$output, $depth = 0, $args = null)
   {
     $indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<ul class=\"sub-menu\">\n";
+    $classes = array('sub-menu');
 
-    if ($depth === 0) { // Vérifiez que c'est le premier niveau de sous-menu
-      $output .= "$indent\t<div class='back-icon'><svg xmlns='http://www.w3.org/2000/svg' class='chevron-back' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>Précédent</div>\n";
+    if ($depth === 0) {
+      // Ajout de la classe 'sous-menu' et début de la div pour les sous-menus
+      $classes[] = 'sous-menu';
+      $output .= "$indent<ul class=\"" . implode(' ', $classes) . "\">\n";
+    } elseif ($depth === 1) {
+      // Ajout de la classe 'sous-sous-menu' pour les sous-sous-menus
+      $classes[] = 'sous-sous-menu';
+      $output .= "$indent<ul class=\"" . implode(' ', $classes) . "\">\n";
+    } else {
+      // Pour les niveaux plus profonds, si nécessaire
+      $output .= "$indent<ul class=\"" . implode(' ', $classes) . "\">\n";
     }
   }
 }
+
+
+add_filter('wp_get_nav_menu_items', 'ajouter_cpt_services_au_menu', 10, 3);
+
+function ajouter_cpt_services_au_menu($items, $menu, $args)
+{
+  if ($menu->slug == 'menu-principal') { // Remplacez par le slug de votre menu
+    $parent_id = 65; // ID de l'élément parent dans votre menu
+
+    // Trouver l'élément parent dans le menu
+    foreach ($items as $item) {
+      if ($item->object_id == $parent_id && $item->object == 'page') {
+        $parent_menu_id = $item->ID;
+        break;
+      }
+    }
+
+    if (isset($parent_menu_id)) {
+      $categories = get_terms(array(
+        'taxonomy' => 'categorie_services',
+        'hide_empty' => true,
+      ));
+
+      foreach ($categories as $category) {
+        $cat_menu_item = new stdClass();
+        $cat_menu_item->ID = 1000000 + $category->term_id;
+        $cat_menu_item->db_id = $cat_menu_item->ID;
+        $category_description = strip_tags(category_description($category->term_id));
+        $cat_menu_item->title = '<p class="category-name">' . esc_html($category->name) . '</p>'
+          . '<p class="category-description">' . $category_description . '</p>';
+        $cat_menu_item->url = get_term_link($category);
+        $cat_menu_item->menu_order = 999 + $category->term_id;
+        $cat_menu_item->menu_item_parent = $parent_menu_id;
+        $cat_menu_item->type = 'custom';
+        $cat_menu_item->object = 'custom';
+        $cat_menu_item->object_id = $category->term_id;
+        $items[] = $cat_menu_item;
+
+        $posts_services = get_posts(array(
+          'post_type' => 'services',
+          'posts_per_page' => -1,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'categorie_services',
+              'field' => 'term_id',
+              'terms' => $category->term_id,
+            ),
+          ),
+        ));
+
+        foreach ($posts_services as $post) {
+          $post_menu_item = new stdClass();
+          $post_menu_item->ID = 2000000 + $post->ID;
+          $post_menu_item->db_id = $post_menu_item->ID;
+          $nom_du_massage = get_field('nom_du_massage', $post->ID);
+          $description_courte = get_field('description_courte', $post->ID);
+          $post_menu_item->title = '<p class="service-name">' . esc_html($nom_du_massage) . '</p>'
+            . '<p class="service-description">' . esc_html($description_courte) . '</p>';
+          $post_menu_item->url = get_permalink($post);
+          $post_menu_item->menu_order = 999 + $post->ID;
+          $post_menu_item->menu_item_parent = $cat_menu_item->ID;
+          $post_menu_item->type = 'custom';
+          $post_menu_item->object = 'custom';
+          $post_menu_item->object_id = $post->ID;
+          $items[] = $post_menu_item;
+        }
+
+         // Ajouter un lien vers la page parente 'Services'
+         $lien_menu_item = new stdClass();
+         $lien_menu_item->ID = 3000000 + $category->term_id;
+         $lien_menu_item->db_id = $lien_menu_item->ID;
+         $lien_menu_item->title = 'Voir tous les services';
+         $lien_menu_item->url = get_permalink($parent_id); // URL de la page parente
+         $lien_menu_item->menu_order = 1000 + $category->term_id;
+         $lien_menu_item->menu_item_parent = $parent_menu_id;
+         $lien_menu_item->type = 'custom';
+         $lien_menu_item->object = 'custom';
+         $lien_menu_item->object_id = $parent_id;
+         $lien_menu_item->classes = array('link-see-all'); // Ajout de la classe
+         $items[] = $lien_menu_item;
+      }
+    }
+  }
+
+  return $items;
+}
+
 
 ////////
 // ADD IMAGE SIZE THUMBNAIL SERVICE
