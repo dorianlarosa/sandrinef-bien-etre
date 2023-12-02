@@ -1,0 +1,163 @@
+.list-items.services {}
+
+.list-items {
+  margin-top: $margin-top-between-content-section-mobile;
+
+  @include media-breakpoint-up(md) {
+    margin-top: $margin-top-between-content-section;
+  }
+
+  .row {
+    --bs-gutter-x: 8rem;
+    --bs-gutter-y: 10rem;
+
+    .item {
+      position: relative;
+
+      .btn-not-available {
+        position: absolute;
+        left: 40px;
+        top: 20px;
+        z-index: 10;
+      }
+
+      .item-content {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        color: $dark;
+        position: relative;
+
+        @include media-breakpoint-up(sm) {
+          max-width: 450px;
+        } 
+ 
+        .plante-1 {
+          position: absolute; 
+          top: 74px; 
+          left: 30px;
+          transform: translate(-112%, -100%) rotate(-10deg);
+          height: 300px;
+        }
+
+        .plante-2 {
+          position: absolute;
+          left: -10px;
+          top: 81px;
+          transform: translate(-100%, -100%) rotate(342deg);
+          height: 184px;
+        }
+
+        .plante-5 {
+          position: absolute;
+          right: 0;
+          top: 259px;
+          transform: scaleX(-1) translate(-100%, -100%) rotate(342deg);
+          height: 300px;
+        }
+
+        .not-available {
+          opacity: 0.6;
+
+          .item-content__container-btn {
+            display: none !important;
+          }
+
+          .item-content__title {
+            margin-top: 3rem;
+          }
+
+          .btn-see-more {
+            display: none !important;
+          }
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        &__image {
+          position: relative;
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            height: 300px;
+
+            @include media-breakpoint-up(sm) {
+              height: 450px;
+            }
+
+            @include media-breakpoint-up(md) {
+              height: 400px;
+            }
+
+            @include media-breakpoint-up(lg) {
+              height: 350px;
+            }
+
+            @include media-breakpoint-up(xl) {
+              height: 350px;
+            }
+          }
+
+          position: relative;
+        }
+
+        &__badge-duo {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+        }
+
+        &__title {
+          margin-top: 3rem;
+          font-size: 1.7rem;
+          line-height: 2rem;
+          font-weight: 500;
+
+          a {
+            color: $black;
+            font-family: $font-family-title;
+
+
+            @include hover-supported() {
+
+              color: $dark-hover;
+
+            }
+          }
+        }
+
+        &__price {
+          margin-top: 1rem;
+          color: $dark;
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+
+        &__text {
+          margin-top: 0.7rem;
+        }
+
+        .container-btns {
+          margin-top: 1rem;
+
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+
+          .btn-arrow {
+            margin-top: 1rem;
+          }
+        }
+
+
+      }
+    }
+  }
+}

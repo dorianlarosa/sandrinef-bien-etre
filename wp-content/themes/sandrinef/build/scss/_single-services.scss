@@ -1,0 +1,206 @@
+#page-single-services {
+
+  .header {
+
+    .badge-duo {
+      background-color: $dark;
+      color: $white;
+    }
+
+  }
+
+  .section-service {
+  
+    @include media-breakpoint-down(lg) {
+      padding-top: 50px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 15px;
+    }
+
+    .resume-service {
+
+
+      .item-content {
+        display: flex;
+        align-items: center;
+
+        &__image {
+          position: relative;
+          z-index: 0;
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            max-width: 100%;
+            height: auto;
+
+            @include media-breakpoint-up(sm) {
+              height: 450px;
+            }
+
+            @include media-breakpoint-up(md) {
+              height: 400px;
+            }
+
+            @include media-breakpoint-up(lg) {
+              height: 500px;
+            }
+
+            @include media-breakpoint-up(lg) {
+              height: 500px;
+            }
+
+
+            @include media-breakpoint-up(xxl) {
+              height: 600px;
+            }
+          }
+
+          position: relative;
+        }
+      }
+
+      .item-details {
+        color: $black;
+
+        &__container-btn {
+          margin-top: 2rem;
+        }
+
+        &__title {
+          margin-bottom: 1rem;
+          font-family: $font-family-title;
+          font-size: 2.25rem;
+        }
+
+        &__text {
+          font-size: 1rem;
+        }
+
+        &__list-seances {
+          display: flex;
+          margin-top: 2rem;
+          gap: 10px 25px;
+          flex-wrap: wrap;
+
+          li {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+
+            svg {
+              color: $dark;
+              margin-right: 10px;
+            }
+          }
+        }
+
+        &__select-seance {
+          $glass-icon: #f1f1f1;
+          $glass: rgb(247, 247, 247);
+          $option: $white;
+
+          margin-top: 2rem;
+
+          select {
+            /* Reset */
+            appearance: none;
+            border: 0;
+            outline: 0;
+            font: inherit;
+            /* Personalize */
+            width: 22.75em;
+            height: 3em;
+            padding: 0 4em 0 1em;
+            background: url(images/arrow-select.svg) no-repeat right 0.8em center / 1.4em,
+              linear-gradient(to left, $glass-icon 3em, $glass 3em);
+            color: $black;
+            border-radius: 0.25em;
+            // box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+
+            option {
+              color: inherit;
+              background-color: $option;
+
+              &:hover {
+                background-color: red;
+              }
+            }
+
+            option:hover {
+              background-color: red;
+            }
+
+            /* Remove focus outline */
+            &:focus {
+              outline: none;
+            }
+
+            /* Remove IE arrow */
+            &::-ms-expand {
+              display: none;
+            }
+
+
+           
+          }
+          #price-display {
+            font-family: $font-family-title;
+            font-size: 35px;
+            margin-left:20px;
+          }
+        }
+
+        .btn-see-more {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+  }
+
+
+  #section-list-tarifs {
+    .section__text {
+      text-align: left;
+
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .info {
+        color: $dark-grey;
+      }
+
+      .list-tarifs {
+        margin-top: 1.5rem;
+
+        .tarif {
+          padding: 1rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .tarif:not(:first-of-type) {
+          /* Vos styles ici */
+          border-top: 1px solid #dfdfdf;
+
+        }
+
+      }
+    }
+  }
+
+  .editing-content {
+    .block-title:not(:first-of-type) {
+      /* Vos styles ici */
+
+      margin-top: 12rem;
+    }
+  }
+}

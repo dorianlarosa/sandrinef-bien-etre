@@ -1,0 +1,142 @@
+#page-a-propos-de-moi {
+
+
+    #a-propos-section {
+        .section__text {
+            max-width: 800px;
+        }
+
+        .container-qualifications {
+            margin-top: 5rem;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 8rem;
+            }
+
+            .qualifications-col {
+                margin-top: 7rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                @include media-breakpoint-up(md) {
+                    margin-top: 0;
+
+                }
+
+                &__content {
+                    position: relative;
+
+                    .container-icon {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        transform: translate(-50%, -50%);
+                        z-index: -10;
+
+                        svg {
+                            width: 150px;
+                            height: 150px;
+                            color: $primary;
+
+                            @include media-breakpoint-up(md) {
+                                width: 200px;
+                                height: 200px;
+
+                            }
+                        }
+                    }
+
+                    h3 {
+                        margin-top: 0;
+                    }
+
+                    .list-qualifications {
+                        margin-top: 1.5rem;
+
+
+
+                        .qualification-item {
+                            padding: 15px 15px 15px 0;
+                            border-top: 1px solid $grey-border;
+                            font-size: .9rem;
+
+                            &:first-child {
+                                padding-top: 0;
+                                border-top: none;
+
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .image-col {
+                position: relative;
+
+
+
+                .image {
+                    width: 100%;
+                    background-size: cover;
+                    background-position: center center;
+                    position: relative;
+
+                    @include media-breakpoint-up(lg) {
+                        height: 100%;
+                        min-height: 300px;
+                    }
+
+                    .presentation-image {
+                        max-width:100%;
+                        height:auto;
+                        display:block;
+                        margin-left:auto;
+                        margin-right:auto;
+
+                        @include media-breakpoint-up(sm) {
+                            width:400px;
+                        }
+                    }
+
+                    .image-certification {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        background-color: $white;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        opacity: 0;
+                        z-index: -1;
+                        transition: .5s;
+
+                        &.visible {
+                            opacity: 1;
+                            z-index: 5;
+                        }
+                    }
+                }
+
+                .grid-dots {
+
+                    left: initial;
+                    right: 0;
+                    bottom: 0;
+
+                    transform: translate(18%, 26%);
+
+                    @include media-breakpoint-up(md) {
+                        bottom: 0;
+                        left: 0;
+                        transform: translate(-21%, 23%);
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+section#cta-section {
+    z-index: 0;
+    background: $dark;
+
+
+    .section__title,
+    .section__subtitle {
+        color: $white;
+
+        .round-container {
+            &::after {
+                background-color: $dark-hover;
+            } 
+        }
+    }
+
+    .section__subtitle {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .container-btn {
+        margin-top: 3rem;
+    }
+}

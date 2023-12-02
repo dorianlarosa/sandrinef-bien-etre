@@ -1,0 +1,41 @@
+#page-massages {
+
+  #shop-section {
+      
+    background-color: #fff;
+    background-size: cover, auto 100%;
+    background-repeat: no-repeat;
+    background-position: left top, left 100% top;
+
+    @include media-breakpoint-up(lg) {
+        background-image: linear-gradient(
+        90deg,
+        #fff 0,
+        #fff 45%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      url('images/shop-section.jpeg');
+      }
+
+      @include media-breakpoint-up(xl) {
+        background-size: cover, auto 130%;
+    background-position: left top, left 100% top;
+
+
+      }
+
+      .image-products {
+          display: block;
+          margin-top:3rem;
+          margin-left:auto;
+          margin-right:auto;
+          width:100%;
+          max-width:500px;
+          height:auto;
+
+          @include media-breakpoint-up(lg) {
+              display: none;
+      }
+    }
+  }
+}

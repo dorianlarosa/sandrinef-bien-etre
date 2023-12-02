@@ -1,0 +1,14 @@
+#kalendes-widget-button {
+    background-color: $dark !important;
+    visibility: hidden;
+}
+
+#kalendes-widget-iframe.hidden {
+    transform: translateX(100%)!important;
+    left: 100%;
+}
+
+#kalendes-widget-iframe {
+    transition: all .3s ease-in-out;
+}
+

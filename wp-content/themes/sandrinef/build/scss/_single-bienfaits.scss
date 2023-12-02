@@ -1,0 +1,35 @@
+#page-single-bienfaits {
+  #plante-introduction {
+    position: absolute;
+    width: 25%;
+    transform: rotate(330deg) translateX(-18px);
+    right: 0;
+  }
+  .section-content {
+  }
+
+  .editing-content {
+    .introduction {
+      font-size: 1.125rem;
+      color: $black;
+      font-style: italic;
+      max-width: 800px;
+      position: relative;
+      z-index: 0;
+      font-weight: 300;
+      margin-bottom: 11rem;
+
+      svg {
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: auto;
+        color: $primary;
+        opacity: 0.9;
+        z-index: -1;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.block {
+
+    // TITLE
+    .section__title {
+        margin-top:7rem;
+    }
+
+    .section__subtitle {
+        margin-bottom:4rem;
+
+    }
+
+
+    // LIST BIENFAITS
+    .list-bienfaits {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        &__item {
+            background-color: $primary;
+            padding:8px 16px;
+            color:$black;
+            font-weight: 600;
+        }   
+    }
+}
