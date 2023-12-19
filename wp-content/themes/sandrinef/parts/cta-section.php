@@ -8,9 +8,7 @@
             Faite le plein d'énergie le temps d'une séance
         </p>
         <div class="section__container-btn">
-            <a target="_blank" href="https://www.kalendes.com/site/sandrinef-bien-etre/booking" class="btn btn--light">Réserver une séance</a>
+            <button class="btn btn--light btn-gift-card">Offrir une séance</button>
         </div>
     </div>
-
-
 </section>

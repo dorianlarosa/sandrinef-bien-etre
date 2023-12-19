@@ -2,8 +2,40 @@
 
 
     #a-propos-section {
-        .section__text {
-            max-width: 800px;
+        .container-texts {
+            .section__text {
+                max-width: 800px;
+                margin-top: 2rem;
+                text-align: center;
+                font-weight: 300;
+            }
+        }
+
+        .container-plante {
+            max-width: 750px;
+            width: 100%;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            .container-image {
+                margin-top: 3rem;
+                display: block;
+
+
+                .plante-a-propos {
+                    position: absolute;
+                    top: 140px;
+                    right: 0;
+                    height: 300px;
+                    transform: translate(100%, -100%) rotate(45deg);
+                }
+
+                .presentation-image {
+                    width: 100%;
+
+                }
+            }
+
         }
 
         .container-qualifications {
@@ -27,25 +59,7 @@
                 &__content {
                     position: relative;
 
-                    .container-icon {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        transform: translate(-50%, -50%);
-                        z-index: -10;
 
-                        svg {
-                            width: 150px;
-                            height: 150px;
-                            color: $primary;
-
-                            @include media-breakpoint-up(md) {
-                                width: 200px;
-                                height: 200px;
-
-                            }
-                        }
-                    }
 
                     h3 {
                         margin-top: 0;
@@ -53,18 +67,24 @@
 
                     .list-qualifications {
                         margin-top: 1.5rem;
-
+                        position: relative;
 
 
                         .qualification-item {
-                            padding: 15px 15px 15px 0;
-                            border-top: 1px solid $grey-border;
                             font-size: .9rem;
 
                             &:first-child {
                                 padding-top: 0;
                                 border-top: none;
 
+                            }
+
+                            img {
+                                width: 100%;
+                            }
+
+                            div {
+                                text-align: center;
                             }
                         }
                     }
@@ -89,14 +109,14 @@
                     }
 
                     .presentation-image {
-                        max-width:100%;
-                        height:auto;
-                        display:block;
-                        margin-left:auto;
-                        margin-right:auto;
+                        max-width: 100%;
+                        height: auto;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
 
                         @include media-breakpoint-up(sm) {
-                            width:400px;
+                            width: 400px;
                         }
                     }
 
@@ -121,21 +141,7 @@
                     }
                 }
 
-                .grid-dots {
 
-                    left: initial;
-                    right: 0;
-                    bottom: 0;
-
-                    transform: translate(18%, 26%);
-
-                    @include media-breakpoint-up(md) {
-                        bottom: 0;
-                        left: 0;
-                        transform: translate(-21%, 23%);
-
-                    }
-                }
             }
         }
     }

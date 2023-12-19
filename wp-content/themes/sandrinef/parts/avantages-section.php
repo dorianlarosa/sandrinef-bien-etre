@@ -42,8 +42,10 @@
 
                         <?php $imageAvantage = get_field("image"); ?>
 
-                        <div class="col-12 col-lg-6 col-image" style="background-image: url('<?= $imageAvantage["sizes"]["medium_large"]; ?>');">
+                        <div class="col-12 col-lg-6 p-0 col-image" data-lg-parallax="child" data-lg-parallax-amplitude="1">
+                            <div class="image" style="background-image: url('<?= $imageAvantage["sizes"]["medium_large"]; ?>');">
 
+                            </div>
                         </div>
 
                         <div class="col-12 col-lg-6 col-details">
@@ -51,7 +53,7 @@
                                 <span class="number">0<?= $countAvantages; ?></span>
                                 <span class="text"><?= the_field("intitule_affichage"); ?></span>
 
-                                
+
                             </h3>
 
                             <p class="col-details__text">

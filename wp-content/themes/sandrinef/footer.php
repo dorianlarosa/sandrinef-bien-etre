@@ -1,5 +1,5 @@
                         <footer id="footer" class="footer container-fluid">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243.48 123.1" class="plante plante-footer">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243.48 123.1" class="plante plante-footer">
                                         <g id="Objects">
                                                 <path class="cls-1" d="M204.59,78.4c3.7-10,3.85-19.14-1.42-28.65-4.41-8-12.15-14-20-18.33a68.75,68.75,0,0,0-26.77-7.89c-9.08-.79-19.49-1.59-28.22,1.55C118.82,28.44,110,34.25,102,40c-4,2.91-8,5.89-12.31,8.42-5.67,3.35-11.43,5-17.85,6.28-6,1.19-13.75,2.56-18.72-2.18-3.36-3.21-4-11.16-2-15.07,2.17-4.08,10.6-13.81,14.39-6.5,3.09,5.95.28,12-4.61,15.73-5.45,4.2-13.16,5.89-20,5.78-7.44-.12-13.15-3.35-17.91-8.94C19,38.67,14.67,33.87,12.78,27.69A38.43,38.43,0,0,1,11,19.09c-.19-3.08.85-6,.62-9.1-.06-.85-2.7-.31-2.63.7.22,3.09-.87,6-.62,9.11a40.5,40.5,0,0,0,2,9.29c1.92,5.81,6,10.21,9.81,14.84C27.49,52.78,36.93,55.21,48,53.22c8.46-1.51,21.19-6.38,21.35-16.73.13-8.2-5.86-12.85-12.87-7.7-3.45,2.54-7.84,7-8.86,11.3-.82,3.47-.17,9.38,2,12.3,6,8.35,20.61,4.36,28.68,2.39,11.81-2.88,21-11.25,30.87-17.86a112.77,112.77,0,0,1,17.24-9.63c7-3.07,14.63-3,22.13-2.67,15.22.59,29.95,4.56,41.91,14.38,5.62,4.61,10.17,10.13,12.6,17.06,2.77,7.91,1.77,15-1.08,22.67-.32.87,2.31.55,2.63-.33Z" />
                                                 <path class="cls-1" d="M203.63,75.77c-8.57,2.9-12.81,12.21-14.75,20.32-1.39,5.83-4,18.63,2.71,22.42a2.1,2.1,0,0,0,2.28-.61,9.35,9.35,0,0,0,1.19-3,39.65,39.65,0,0,1,3.17-6.27c2.55-4.45,5.16-8.87,7.5-13.43A22.52,22.52,0,0,0,208.32,85c0-2.39,0-7.46-2.22-9-.76-.55-3.17.51-2.45,1,2.47,1.78,2.17,8.79,1.84,11.17-.57,4-2.5,7.36-4.38,10.88-2,3.69-4.06,7.27-6.09,10.92a40.44,40.44,0,0,0-2.1,3.89c-.55,1.33-.62,2.86-1.51,4l2.28-.61c-5.62-3.14-3.64-14.67-2.64-19.39a47,47,0,0,1,3.29-10.66c1.77-3.69,5.53-8.7,9.64-10.09,1.53-.51,1.22-1.85-.35-1.32Z" />
@@ -13,7 +13,7 @@
                                                 <path class="cls-1" d="M151.65,23.85c-2.31-4.76.69-10.33,4.21-13.67,2.64-2.51,5.53-3.71,8.95-4.86,1.3-.44,4.47-1.84,4.63-.57.1.83-2.17,4-2.56,4.75a38.1,38.1,0,0,1-3.09,5.22c-3.41,4.73-6.43,9.48-12.95,9.44-1,0-2.8,1.48-1,1.5A15.09,15.09,0,0,0,163,19.16c3.68-4.92,7.6-10.39,10-16,.12-.29-.29-.52-.51-.55C167.08,2,160.16,4.77,155.91,8c-4.74,3.55-9.88,10.45-6.9,16.59.44.9,3,.07,2.64-.7Z" />
                                                 <path class="cls-1" d="M151.91,25.29c1.24-2.41,3-4.47,4.41-6.78a23.19,23.19,0,0,1,2-3.05,13.56,13.56,0,0,0,2.17-2.61c.56-1.11-2.06-.82-2.45,0a13.63,13.63,0,0,1-2.12,2.5,26,26,0,0,0-2,3.16c-1.4,2.31-3.16,4.36-4.4,6.78-.57,1.11,2,.82,2.45.05Z" />
                                         </g>
-                                </svg>
+                                </svg> -->
                                 <div class="container">
 
                                         <div class="footer__logo-container">
@@ -21,7 +21,7 @@
                                                 $custom_logo_id = get_theme_mod('custom_logo');
                                                 $image = wp_get_attachment_image_src($custom_logo_id, 'full');
                                                 ?>
-                                                <img class="logo" src="<?php echo $image[0]; ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+                                                <img class="logo" src="<?= get_template_directory_uri() . '/images/logo-white.png' ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                                         </div>
                                         <div class="footer__list-contact">
                                                 <div class="row">
@@ -43,9 +43,7 @@
 
                                                                 </ul>
 
-                                                        </div>
-                                                        <div class="col-12 col-md-6 col-lg-4 col-footer col-footer__contact">
-                                                                <p class="col-footer__title">
+                                                                <p class="col-footer__title mt-5">
                                                                         Contact
                                                                 </p>
 
@@ -59,11 +57,10 @@
                                                                                 <a href="mailto:<?php the_field('adresse_email', 'option'); ?>">
                                                                                         <?php the_field('adresse_email', 'option'); ?>
                                                                                 </a>
-
                                                                         </li>
                                                                 </ul>
                                                         </div>
-                                                        <div class="col-12 col-md-6 col-lg-4 col-footer col-footer__horaire">
+                                                        <div class="col-12 col-md-6 col-lg-4 col-footer col-footer__contact">
                                                                 <p class="col-footer__title">
                                                                         Horaires
                                                                 </p>
@@ -86,6 +83,17 @@
                                                                         </li>
                                                                 </ul>
                                                         </div>
+                                                        <div class="col-12 col-md-6 col-lg-4 col-footer col-footer__horaire">
+                                                                <p class="col-footer__title">
+                                                                        Liens utiles
+                                                                </p>
+                                                                <?php wp_nav_menu(array(
+                                                                        'theme_location' => 'secondary-menu',
+                                                                        'menu_class' => 'menu menu-secondaire',
+                                                                ));
+
+                                                                ?>
+                                                        </div>
                                                 </div>
                                         </div>
                                         <div class="footer__bottom-footer">
@@ -93,17 +101,8 @@
                                                         <?php echo date("Y"); ?> © Sandrine Fonquernie. All right reserved
                                                 </span>
 
-                                                <div class="container-links">
-                                                        <?php
-                                                        wp_nav_menu(array(
-                                                                'theme_location' => 'footer-menu',
-                                                                'menu_class' => 'menu',
-                                                        )); ?>
-                                                        <!-- <span><a href="">Mentions légales</a></span>
-                                                <span><a href="">Politique de confidentialitée</a></span> -->
-                                                </div>
+
                                         </div>
-                                        <?php get_template_part('parts/grid-dots', null, 'reveal-8'); ?>
                                 </div>
 
                         </footer>

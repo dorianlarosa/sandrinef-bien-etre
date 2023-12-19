@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@studio-freight/lenis": "^1.0.29",
+    "@waaark/luge": "^0.6.17-beta.2",
     "bootstrap": "^5.0.0-alpha3",
     "gsap": "^3.11.3",
     "tiny-slider": "^2.9.4"

@@ -209,7 +209,7 @@ function sandrinef_enqueue_script()
   wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', [], false, true);
 
   wp_enqueue_script('my-js-theme', get_template_directory_uri() . '/js/script.js', [], false, true);
-  wp_localize_script('ajax-js-theme', 'adminAjax', admin_url('admin-ajax.php'));
+  wp_localize_script('ajax-js-theme', 'adminAjax', array('ajaxurl' => admin_url('admin-ajax.php')));
 
   $translation_array = array('templateUrl' => get_stylesheet_directory_uri());
   //after wp_enqueue_script
@@ -344,7 +344,7 @@ function custom_post_type()
     'show_in_rest'          => true,
     'show_in_menu'          => true,
     'menu_position'         => 5,
-    'menu_icon'             => 'dashicons-universal-access',
+    'menu_icon'             => 'dashicons-store',
     'show_in_admin_bar'     => true,
     'show_in_nav_menus'     => true,
     'can_export'            => true,
@@ -410,56 +410,56 @@ function custom_post_type()
 
 
   // AVANTAGES
-  $labelsAvantages = array(
-    'name'                  => 'Avantages',
-    'singular_name'         => 'Avantage',
-    'menu_name'             => __('Avantages', 'text_domain'),
-    'name_admin_bar'        => __('Avantages', 'text_domain'),
-    'archives'              => __('Item Archives', 'text_domain'),
-    'attributes'            => __('Item Attributes', 'text_domain'),
-    'parent_item_colon'     => __('Parent Item:', 'text_domain'),
-    'all_items'             => __('Tout les avantages', 'text_domain'),
-    'add_new_item'          => __('Ajouter un nouveau avantage', 'text_domain'),
-    'add_new'               => __('Ajouter', 'text_domain'),
-    'new_item'              => __('Nouveau avantage', 'text_domain'),
-    'edit_item'             => __('Modifier l\'avantage', 'text_domain'),
-    'update_item'           => __('Mettre à jour l\'avantage', 'text_domain'),
-    'view_item'             => __('Voir l\'avantage', 'text_domain'),
-    'view_items'            => __('Voir les avantages', 'text_domain'),
-    'search_items'          => __('Chercher un avantage', 'text_domain'),
-    'not_found'             => __('Not found', 'text_domain'),
-    'not_found_in_trash'    => __('Not found in Trash', 'text_domain'),
-    'featured_image'        => __('Featured Image', 'text_domain'),
-    'set_featured_image'    => __('Set featured image', 'text_domain'),
-    'remove_featured_image' => __('Remove featured image', 'text_domain'),
-    'use_featured_image'    => __('Use as featured image', 'text_domain'),
-    'insert_into_item'      => __('Insert into item', 'text_domain'),
-    'uploaded_to_this_item' => __('Uploaded to this item', 'text_domain'),
-    'items_list'            => __('Items list', 'text_domain'),
-    'items_list_navigation' => __('Items list navigation', 'text_domain'),
-    'filter_items_list'     => __('Filter items list', 'text_domain'),
-  );
-  $argsAvantages = array(
-    'label'                 => __('Avantage', 'text_domain'),
-    'description'           => __('Bienfaits et avantages', 'text_domain'),
-    'labels'                => $labelsAvantages,
-    'supports'              => array('title', 'page-attributes'),
-    'taxonomies'            => array(),
-    'hierarchical'          => false,
-    'public'                => true,
-    'show_ui'               => true,
-    'show_in_menu'          => true,
-    'menu_position'         => 5,
-    'menu_icon'             => 'dashicons-heart',
-    'show_in_admin_bar'     => true,
-    'show_in_nav_menus'     => true,
-    'can_export'            => true,
-    'has_archive'           => true,
-    'exclude_from_search'   => false,
-    'publicly_queryable'    => false,
-    'capability_type'       => 'page',
-  );
-  register_post_type('avantages', $argsAvantages);
+  // $labelsAvantages = array(
+  //   'name'                  => 'Avantages',
+  //   'singular_name'         => 'Avantage',
+  //   'menu_name'             => __('Avantages', 'text_domain'),
+  //   'name_admin_bar'        => __('Avantages', 'text_domain'),
+  //   'archives'              => __('Item Archives', 'text_domain'),
+  //   'attributes'            => __('Item Attributes', 'text_domain'),
+  //   'parent_item_colon'     => __('Parent Item:', 'text_domain'),
+  //   'all_items'             => __('Tout les avantages', 'text_domain'),
+  //   'add_new_item'          => __('Ajouter un nouveau avantage', 'text_domain'),
+  //   'add_new'               => __('Ajouter', 'text_domain'),
+  //   'new_item'              => __('Nouveau avantage', 'text_domain'),
+  //   'edit_item'             => __('Modifier l\'avantage', 'text_domain'),
+  //   'update_item'           => __('Mettre à jour l\'avantage', 'text_domain'),
+  //   'view_item'             => __('Voir l\'avantage', 'text_domain'),
+  //   'view_items'            => __('Voir les avantages', 'text_domain'),
+  //   'search_items'          => __('Chercher un avantage', 'text_domain'),
+  //   'not_found'             => __('Not found', 'text_domain'),
+  //   'not_found_in_trash'    => __('Not found in Trash', 'text_domain'),
+  //   'featured_image'        => __('Featured Image', 'text_domain'),
+  //   'set_featured_image'    => __('Set featured image', 'text_domain'),
+  //   'remove_featured_image' => __('Remove featured image', 'text_domain'),
+  //   'use_featured_image'    => __('Use as featured image', 'text_domain'),
+  //   'insert_into_item'      => __('Insert into item', 'text_domain'),
+  //   'uploaded_to_this_item' => __('Uploaded to this item', 'text_domain'),
+  //   'items_list'            => __('Items list', 'text_domain'),
+  //   'items_list_navigation' => __('Items list navigation', 'text_domain'),
+  //   'filter_items_list'     => __('Filter items list', 'text_domain'),
+  // );
+  // $argsAvantages = array(
+  //   'label'                 => __('Avantage', 'text_domain'),
+  //   'description'           => __('Bienfaits et avantages', 'text_domain'),
+  //   'labels'                => $labelsAvantages,
+  //   'supports'              => array('title', 'page-attributes'),
+  //   'taxonomies'            => array(),
+  //   'hierarchical'          => false,
+  //   'public'                => true,
+  //   'show_ui'               => true,
+  //   'show_in_menu'          => true,
+  //   'menu_position'         => 5,
+  //   'menu_icon'             => 'dashicons-heart',
+  //   'show_in_admin_bar'     => true,
+  //   'show_in_nav_menus'     => true,
+  //   'can_export'            => true,
+  //   'has_archive'           => true,
+  //   'exclude_from_search'   => false,
+  //   'publicly_queryable'    => false,
+  //   'capability_type'       => 'page',
+  // );
+  // register_post_type('avantages', $argsAvantages);
 
 
   // AVANTAGES
@@ -611,7 +611,7 @@ function custom_post_type()
     'show_ui'               => true,
     'show_in_menu'          => true,
     'menu_position'         => 5,
-    'menu_icon'             => 'dashicons-universal-access',
+    'menu_icon'             => 'dashicons-location',
     'show_in_admin_bar'     => true,
     'show_in_nav_menus'     => true,
     'can_export'            => true,
@@ -676,7 +676,7 @@ if (function_exists('acf_add_options_page')) {
     'menu_slug'     => 'information',
     'capability'    => 'edit_posts',
     'position'      => 8,
-    'icon_url'      => 'dashicons-text-page',
+    'icon_url'      => 'dashicons-phone',
     'redirect'      => false,
   ));
 }
@@ -705,6 +705,7 @@ function register_my_menus()
     array(
       'main-menu' => __('Menu principal'),
       'footer-menu' => __('Menu Footer'),
+      'secondary-menu' => __('Menu Secondaire'),
     )
   );
 }
@@ -760,35 +761,8 @@ function parent_menu_dropdown($item_output, $item, $depth, $args)
 // DISPLAY DESCRIPTION MENU
 
 class Custom_Walker extends Walker_Nav_Menu
+
 {
-
-  // // ADD DESCRIPTION
-  // function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-  // {
-  //   $classes = empty($item->classes) ? array() : (array) $item->classes;
-  //   $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
-  //   !empty($class_names) and $class_names = ' class="' . esc_attr($class_names) . '"';
-  //   $output .= "<li id='menu-item-$item->ID' $class_names>";
-
-  //   $attributes  = '';
-  //   !empty($item->attr_title) and $attributes .= ' title="'  . esc_attr($item->attr_title) . '"';
-  //   !empty($item->target) and $attributes .= ' target="' . esc_attr($item->target) . '"';
-  //   !empty($item->xfn) and $attributes .= ' rel="'    . esc_attr($item->xfn) . '"';
-  //   !empty($item->url) and $attributes .= ' href="'   . esc_attr($item->url) . '"';
-
-  //   $title = apply_filters('the_title', $item->title, $item->ID);
-  //   $item_output = $args->before
-  //     . "<a $attributes>"
-  //     . $args->link_before
-  //     . '<span class="menu-item-name">' . $title . '</span>'
-  //     . '<span class="menu-item-description">' . $item->description . '</span>'
-  //     . '</a> '
-  //     . $args->link_after
-  //     . $args->after; // Fermer </div> ici
-
-  //   $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-  // }
-
 
   // Surcharge de la méthode start_lvl pour ajouter des classes et l'icône de retour
   function start_lvl(&$output, $depth = 0, $args = null)
@@ -796,10 +770,18 @@ class Custom_Walker extends Walker_Nav_Menu
     $indent = str_repeat("\t", $depth);
     $classes = array('sub-menu');
 
+
+
     if ($depth === 0) {
+
       // Ajout de la classe 'sous-menu' et début de la div pour les sous-menus
       $classes[] = 'sous-menu';
       $output .= "$indent<ul class=\"" . implode(' ', $classes) . "\">\n";
+
+      // Ajouter un élément <span> avec le texte "Retour" à l'intérieur de la ".sous-menu"
+      $indent = str_repeat("\t", $depth + 1);
+      $classes = array('back-icon'); // Ajoutez ici vos classes personnalisées pour le span
+      $output .= "$indent<li><span class=\"" . implode(' ', $classes) . "\"><svg class='arrow arrow-reverse' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-arrow-right' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z' /></svg>Retour</span></li>\n";
     } elseif ($depth === 1) {
       // Ajout de la classe 'sous-sous-menu' pour les sous-sous-menus
       $classes[] = 'sous-sous-menu';
@@ -816,21 +798,21 @@ add_filter('wp_get_nav_menu_items', 'ajouter_cpt_services_au_menu', 10, 3);
 
 function ajouter_cpt_services_au_menu($items, $menu, $args)
 {
-  if ($menu->slug == 'menu-principal') { // Remplacez par le slug de votre menu
+  if (!is_admin() && $menu->slug == 'menu-principal') { // Remplacez par le slug de votre menu
     $parent_id = 65; // ID de l'élément parent dans votre menu
 
     // Trouver l'élément parent dans le menu
     foreach ($items as $item) {
       if ($item->object_id == $parent_id && $item->object == 'page') {
-        $parent_menu_id = $item->ID;
-        break;
+          $parent_menu_id = $item->ID;
+          break;
       }
-    }
+  }
 
     if (isset($parent_menu_id)) {
       $categories = get_terms(array(
         'taxonomy' => 'categorie_services',
-        'hide_empty' => true,
+        'hide_empty' => false,
       ));
 
       foreach ($categories as $category) {
@@ -838,14 +820,22 @@ function ajouter_cpt_services_au_menu($items, $menu, $args)
         $cat_menu_item->ID = 1000000 + $category->term_id;
         $cat_menu_item->db_id = $cat_menu_item->ID;
         $category_description = strip_tags(category_description($category->term_id));
-        $cat_menu_item->title = '<p class="category-name">' . esc_html($category->name) . '</p>'
-          . '<p class="category-description">' . $category_description . '</p>';
-        $cat_menu_item->url = get_term_link($category);
+        $cat_menu_item->title = '<div class="category"><p class="category-name">' . esc_html($category->name) . '</p>'
+          . '<p class="category-description">' . $category_description . '</p></div>';
         $cat_menu_item->menu_order = 999 + $category->term_id;
         $cat_menu_item->menu_item_parent = $parent_menu_id;
         $cat_menu_item->type = 'custom';
         $cat_menu_item->object = 'custom';
+        $cat_menu_item->post_parent = 0;
+
         $cat_menu_item->object_id = $category->term_id;
+
+        $cat_menu_item->classes = array(); // Même si c'est un tableau vide
+        $cat_menu_item->url = ''; // Même si c'est une chaîne vide
+        $cat_menu_item->target = '';
+        $cat_menu_item->xfn = '';
+
+
         $items[] = $cat_menu_item;
 
         $posts_services = get_posts(array(
@@ -873,23 +863,34 @@ function ajouter_cpt_services_au_menu($items, $menu, $args)
           $post_menu_item->menu_item_parent = $cat_menu_item->ID;
           $post_menu_item->type = 'custom';
           $post_menu_item->object = 'custom';
+          $post_menu_item->post_parent = 0;
+
           $post_menu_item->object_id = $post->ID;
+          $post_menu_item->classes = array(); // Même si c'est un tableau vide
+          $post_menu_item->target = '';
+          $post_menu_item->xfn = '';
           $items[] = $post_menu_item;
         }
 
-         // Ajouter un lien vers la page parente 'Services'
-         $lien_menu_item = new stdClass();
-         $lien_menu_item->ID = 3000000 + $category->term_id;
-         $lien_menu_item->db_id = $lien_menu_item->ID;
-         $lien_menu_item->title = 'Voir tous les services';
-         $lien_menu_item->url = get_permalink($parent_id); // URL de la page parente
-         $lien_menu_item->menu_order = 1000 + $category->term_id;
-         $lien_menu_item->menu_item_parent = $parent_menu_id;
-         $lien_menu_item->type = 'custom';
-         $lien_menu_item->object = 'custom';
-         $lien_menu_item->object_id = $parent_id;
-         $lien_menu_item->classes = array('link-see-all'); // Ajout de la classe
-         $items[] = $lien_menu_item;
+        // Ajouter un lien vers la page parente 'Services'
+        $lien_menu_item = new stdClass();
+        $lien_menu_item->ID = 3000000 + $category->term_id;
+        $lien_menu_item->db_id = $lien_menu_item->ID;
+        $lien_menu_item->title = '<div class="content-link">Voir tous les services  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" /></svg></div>';
+        $lien_menu_item->url = get_permalink($parent_id); // URL de la page parente
+        $lien_menu_item->menu_order = 1000 + $category->term_id;
+        $lien_menu_item->menu_item_parent = $parent_menu_id;
+        $lien_menu_item->type = 'custom';
+        $lien_menu_item->object = 'custom';
+        $lien_menu_item->object_id = $parent_id;
+        $lien_menu_item->classes = array('link-see-all'); // Ajout de la classe
+        $lien_menu_item->xfn = '';
+        $lien_menu_item->post_parent = 0;
+
+        $lien_menu_item->target = '';
+
+
+        $items[] = $lien_menu_item;
       }
     }
   }
@@ -902,3 +903,70 @@ function ajouter_cpt_services_au_menu($items, $menu, $args)
 // ADD IMAGE SIZE THUMBNAIL SERVICE
 ////////
 add_image_size('custom-size', 700, 700, array('center', 'center'));
+
+
+
+
+// BLOG
+add_filter('wpseo_breadcrumb_links', 'yoast_seo_breadcrumb_append_link');
+
+function yoast_seo_breadcrumb_append_link($links) {
+    if (is_singular('post')) {
+        // Remplacez 'URL de votre page d'archive' par l'URL réelle de votre page d'archive des articles
+        $breadcrumb[] = array(
+            'url' => get_post_type_archive_link('post'),
+            'text' => 'Blog', // Remplacez 'Blog' par le texte que vous souhaitez afficher
+        );
+
+        array_splice($links, 1, 0, $breadcrumb);
+    }
+
+    return $links;
+}
+
+
+// REMOVE CATEGORY BLOG
+add_action( 'init', 'remove_category' );
+function remove_category() {
+    register_taxonomy('category', array());
+}
+
+// REMOVE TAG BLOG
+add_action( 'init', 'remove_tags' );
+
+function remove_tags(){
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+
+
+// Ajouter les thumbnail
+if ( ! function_exists( 'your_theme_setup' ) ) :
+
+  function your_theme_setup() {
+      // Ajouter le support des images à la une
+      add_theme_support( 'post-thumbnails' );
+  }
+
+endif;
+
+add_action( 'after_setup_theme', 'your_theme_setup' );
+
+
+// GET EXRTRAIT FROM CONTENU
+function get_first_characters($text, $limit) {
+  if (mb_strlen($text) > $limit) {
+      $text = mb_substr($text, 0, $limit) . '...';
+  }
+  return $text;
+}
+
+// RENDRE THUMNAIL OBLIGATOIRE
+function check_post_thumbnail_before_publishing( $post_id ) {
+  // Vérifier si c'est un article (post) et si l'image à la une est définie
+  if (get_post_type($post_id) === 'post' && !has_post_thumbnail($post_id)) {
+      // Empêcher la publication et afficher un message d'erreur
+      wp_die('Un article doit avoir une image à la une. Veuillez définir une image à la une avant de publier.');
+  }
+}
+
+add_action('pre_post_update', 'check_post_thumbnail_before_publishing');

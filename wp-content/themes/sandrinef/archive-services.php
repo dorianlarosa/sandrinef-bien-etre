@@ -21,15 +21,13 @@ get_header();
 
     <section id="services-section" class="container-fluid section">
         <div class="container">
-            <div >
+            <div>
 
-                <h2 class="section__title">Mes services</h2>
-                <img class="divider" src="<?= get_template_directory_uri() ?>/images/divider.svg" alt="">
-                <p class="section__subtitle">
-                    Découvrez l'ensemble de mes services
-                </p>
+                <h2 class="section__title"> <span class="round-container">M</span>es services</h2>
+                <?php get_template_part('parts/divider'); ?>
                 <p class="section__text">
-                Chacun a droit à son instant de détente. Que vous souhaitiez une pause dans votre quotidien ou que vous ayez besoin de vous ressourcer, vous trouverez votre bien-être avec moi. Que votre souhait soit un massage, avec ou sans huile, en position assise ou étendue, que vous ayez besoin de rééquilibrer votre capital énergie, je me ferais un plaisir de vous procurer le soin bien-être de votre choix.                </p>
+                    Chacun a droit à son instant de détente. Que vous souhaitiez une pause dans votre quotidien ou que vous ayez besoin de vous ressourcer, vous trouverez votre bien-être avec moi. Que votre souhait soit un massage, avec ou sans huile, en position assise ou étendue, que vous ayez besoin de rééquilibrer votre capital énergie, je me ferais un plaisir de vous procurer le soin bien-être de votre choix. </p>
+                </p>
             </div>
 
             <?php get_template_part('parts/list-services'); ?>

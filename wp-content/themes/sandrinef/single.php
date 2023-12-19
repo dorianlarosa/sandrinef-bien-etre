@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<div id="page" class="content-page">
-<section id="header-page" class="container-fluid header">
+<div id="single-post" class="content-page">
+    <section id="header-page" class="container-fluid header">
         <div class="container container-content-header">
             <div class="content-header-small">
 
@@ -21,13 +21,15 @@
         <div class="container">
 
             <div class="editing-content">
+                <?php the_post_thumbnail('full'); ?>
+
                 <?php the_content(); ?>
             </div>
 
         </div>
     </section>
 
-   
+
 
 
 

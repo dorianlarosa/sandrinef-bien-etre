@@ -66,7 +66,6 @@ get_header();
                         <?php if ($seances) { ?>
                             <select id="select-reservation-single-service-page">
 
-                                <!-- @TODO rendre uniquement le premier service selected -->
                                 <?php foreach ($seances as $seance) { ?>
                                     <option <?= $index === 0 ? 'selected' : '' ?> value="<?= $seance["id"] ?>" data-price="<?= $seance["prix"] ?>"><?= $seance["duree"] ?> minutes</option>
                                 <?php } ?>
@@ -102,7 +101,7 @@ get_header();
 
                     <div class="img-container">
                         <div class="img-overlay"></div>
-                        <div class="img-content">
+                        <div class="img-content" ata-lg-parallax-amplitude="-1" data-lg-parallax="child">
                             <img class="img-service" src="<?= $imageService["sizes"]["custom-size"]; ?>" alt="">
                         </div>
                     </div>

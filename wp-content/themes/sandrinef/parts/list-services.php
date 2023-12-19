@@ -2,13 +2,31 @@
     <div class="row justify-content-between reveal-parent">
 
         <?php
-        $defaults = array(
-            'post_type' => 'services',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-            'orderby' => 'menu_order',
-            'order' => 'ASC'
-        );
+       $defaults = array(
+        'post_type' => 'services',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => 'statut_du_massage',
+                'value' => 'formation_en_cours',
+                'compare' => '!=',
+            ),
+            array(
+                'key' => 'statut_du_massage',
+                'value' => 'formation_en_cours',
+                'compare' => '=',
+            ),
+        ),
+        'orderby' => array(
+            'meta_value' => 'DESC',
+            'menu_order' => 'DESC',
+        ),
+    );
+    
 
         // On verifie si l'on doit afficher tout les services ou uniquement ceux passé en argument
         $argsServices = wp_parse_args($args ?? array(), $defaults);
@@ -54,7 +72,7 @@
 
                             <div class="img-container">
                                 <div class="img-overlay"></div>
-                                <div class="img-content">
+                                <div data-lg-parallax-amplitude="1" data-lg-parallax="child" class="img-content">
                                     <img class="" src="<?= $imageService["sizes"]["custom-size"]; ?>" alt="Illustration du massage" height="512" width="768">
                                 </div>
                             </div>
@@ -90,6 +108,9 @@
                                 <?= the_field("resume"); ?>
                             </p>
 
+                            <?php if ($statusService != 'formation_en_cours') { ?>
+
+
                             <div class="container-btns">
 
                                 <a class='btn-arrow' href='<?= the_permalink() ?>'>
@@ -124,6 +145,7 @@
 
                             </div>
 
+                            <?php } ?>
 
 
                         </div>

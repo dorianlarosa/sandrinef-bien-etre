@@ -10,7 +10,7 @@
   }
 
   .section-service {
-  
+
     @include media-breakpoint-down(lg) {
       padding-top: 50px;
     }
@@ -104,6 +104,11 @@
 
           margin-top: 2rem;
 
+          input,
+          select {
+            border-radius: 0;
+          }
+
           select {
             /* Reset */
             appearance: none;
@@ -145,12 +150,13 @@
             }
 
 
-           
+
           }
+
           #price-display {
             font-family: $font-family-title;
             font-size: 35px;
-            margin-left:20px;
+            margin-left: 20px;
           }
         }
 
@@ -159,6 +165,18 @@
         }
       }
     }
+
+    .img-container {
+      overflow: hidden;
+
+      .img-content {
+        img {
+
+          transform: translate3d(0px, 0px, 0px) scale(1.1);
+        }
+      }
+    }
+
 
   }
 
@@ -193,6 +211,24 @@
         }
 
       }
+    }
+  }
+
+  // LIST BIENFAITS
+  .list-bienfaits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+
+    &__item {
+      background-color: $primary;
+      padding: 8px 16px;
+      color: $black;
+      font-weight: 600;
+      text-align: center;
     }
   }
 

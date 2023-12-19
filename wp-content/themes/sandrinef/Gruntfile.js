@@ -53,7 +53,10 @@ module.exports = function (grunt) {
                             'node_modules/tiny-slider/dist/min/tiny-slider.js',
                             'node_modules/@studio-freight/lenis/bundled/lenis.js',
                             'node_modules/gsap/dist/gsap.min.js',
-                            'node_modules/tiny-slider/src/tiny-slider.scss'
+                            'node_modules/tiny-slider/src/tiny-slider.scss',
+                            'node_modules/@waaark/luge/dist/js/luge.js',
+                            'node_modules/@waaark/luge/dist/css/luge.css'
+
                         ],
                         dest: 'build/libs/'
                     }
@@ -64,7 +67,7 @@ module.exports = function (grunt) {
         // concat js and css
         concat: {
             js: {
-                src: ['build/libs/tiny-slider.js', 'build/libs/lenis.js', 'build/libs/gsap.min.js', 'build/js/*.js'],
+                src: ['build/libs/tiny-slider.js', 'build/libs/lenis.js','build/libs/luge.js', 'build/libs/gsap.min.js', 'build/js/*.js'],
                 dest: 'js/script.js'
             },
             css: {

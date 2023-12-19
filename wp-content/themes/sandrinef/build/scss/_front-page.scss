@@ -106,8 +106,15 @@
         }
 
         .img-container,
-        .img-content {
+        .img-content { 
           height: 100%;
+        }
+
+        .container-parallax {
+          height: 100%;
+          img {
+            transform: translate3d(0px, 0px, 0px) scale(1.2);
+          }
         }
       }
     }
@@ -155,7 +162,11 @@
 
   #services-section {
     padding-bottom: 40px;
-    padding-top: 180px;
+
+    @include media-breakpoint-up(lg) {
+
+      padding-top: 180px;
+    }
 
     .list-items {
       position: relative;
@@ -250,13 +261,14 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -100%);        
+        transform: translate(-50%, -100%);
         justify-content: space-between;
         z-index: 100;
         width: 100%;
         display: none;
+
         @include media-breakpoint-up(lg) {
-          width: 830px;    
+          width: 830px;
         }
 
         @include hover-detect {

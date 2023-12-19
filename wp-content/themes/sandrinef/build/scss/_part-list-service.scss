@@ -7,16 +7,22 @@
     margin-top: $margin-top-between-content-section;
   }
 
-  .row {
+  .row { 
     --bs-gutter-x: 8rem;
+    --bs-gutter-y: 8rem;
+
+    @include media-breakpoint-up(lg) {
     --bs-gutter-y: 10rem;
+ 
+    }
+
 
     .item {
       position: relative;
 
-      .btn-not-available {
+      .btn-not-available { 
         position: absolute;
-        left: 40px;
+        left: 20px;
         top: 20px;
         z-index: 10;
       }
@@ -87,6 +93,7 @@
             width: 100%;
             object-fit: cover;
             height: 300px;
+            transform: translate3d(0px, 0px, 0px) scale(1.1);
 
             @include media-breakpoint-up(sm) {
               height: 450px;
